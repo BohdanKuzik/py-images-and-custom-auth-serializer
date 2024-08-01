@@ -6,6 +6,7 @@ from django.db import models
 from django.conf import settings
 from django.utils.text import slugify
 
+
 class CinemaHall(models.Model):
     name = models.CharField(max_length=255)
     rows = models.IntegerField()
@@ -36,6 +37,7 @@ class Actor(models.Model):
     @property
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
+
 
 def movie_image(instance: "Movie", filename: str) -> pathlib.Path:
     filename = (f"{slugify(instance.title)}-"
